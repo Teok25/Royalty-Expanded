@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThoughtDef>
+    <defName>Dreadspike</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>Dreadspike</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>dreadspike</label>
+        <description>I'm hearing a never-ending torrent of screams and agony in my head... And I think the screams are mine.</description>
+        <baseMoodEffect>-70</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

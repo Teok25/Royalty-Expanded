@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<AbilityDef ParentName="WordOfBase">
+    <defName>WordOfDread</defName>
+    <label>word of dread</label>
+    <description>Speak dreadful, desolating words to someone while using psychic suggestion to implant a loop of constant fear, confusion and pain in the target's mind. The dreadspike will suppress all happy thoughts and sensations in the target to drastically decrease mood. This also has the added effect of removing any productivity in the target as they are unable to think of anything else.</description>
+    <level>4</level>
+    <iconPath>UI/Abilities/WordOfDread</iconPath>
+    <!--<hotKey>Misc12</hotKey>-->
+    <statBases>
+      <Ability_PsyfocusCost>0.7</Ability_PsyfocusCost>
+      <Ability_Duration>1500</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>2</warmupTime>
+      <targetParams>
+        <canTargetAnimals>False</canTargetAnimals>
+        <canTargetSelf>False</canTargetSelf>
+		<onlyTargetColonists>False</onlyTargetColonists>
+		<neverTargetHostileFaction>False</neverTargetHostileFaction>
+      </targetParams>
+    </verbProperties>
+	<jobDef>CastAbilityOnThingUninterruptible</jobDef>
+    <comps>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>Dreadspike</hediffDef>
+        <durationMultiplier>PsychicSensitivity</durationMultiplier>
+        <onlyBrain>True</onlyBrain>
+        <psychic>True</psychic>
+        <applicableToMechs>False</applicableToMechs>
+        <goodwillImpact>-50</goodwillImpact>
+      </li>
+      <li Class="CompProperties_AbilitySocialInteraction">
+        <interactionDef>WordOfDread</interactionDef>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <AbilityDef ParentName="PsycastBaseSkip">
+    <defName>Colosseum</defName>
+    <label>colosseum</label>
+    <description>Raise an arena up from the ground and wreak havoc on the minds of those inside.</description>
+    <level>6</level>
+    <iconPath>UI/Abilities/Colosseum</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+    <statBases>
+      <Ability_EntropyGain>65</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.03</Ability_PsyfocusCost>
+    </statBases>
+    <verbProperties>
+      <warmupTime>1</warmupTime>
+      <range>24.9</range>
+      <targetParams>
+	    <canTargetPawns>False</canTargetPawns>
+	    <canTargetSelf>False</canTargetSelf>
+        <canTargetAnimals>False</canTargetAnimals>
+        <canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "RoyaltyExpanded.CompProperties_AbilityColosseum">
+        <compClass>RoyaltyExpanded.CompAbilityEffect_Colosseum</compClass>
+        <pattern>
+			<li>(6, 0)</li>
+			<li>(6, -1)</li>
+			<li>(6, -2)</li>
+			<li>(5, -2)</li>
+			<li>(5, -3)</li>
+			<li>(5, -4)</li>
+			<li>(4, -4)</li>
+			<li>(4, -5)</li>
+			<li>(3, -5)</li>
+			<li>(2, -5)</li>
+			<li>(2, -6)</li>
+			<li>(1, -6)</li>
+			<li>(0, -6)</li>
+			<li>(-6, 0)</li>
+			<li>(-6, -1)</li>
+			<li>(-6, -2)</li>
+			<li>(-5, -2)</li>
+			<li>(-5, -3)</li>
+			<li>(-5, -4)</li>
+			<li>(-4, -4)</li>
+			<li>(-4, -5)</li>
+			<li>(-3, -5)</li>
+			<li>(-2, -5)</li>
+			<li>(-2, -6)</li>
+			<li>(-1, -6)</li>
+			<li>(0, -6)</li>
+			<li>(-6, 0)</li>
+			<li>(-6, 1)</li>
+			<li>(-6, 2)</li>
+			<li>(-5, 2)</li>
+			<li>(-5, 3)</li>
+			<li>(-5, 4)</li>
+			<li>(-4, 4)</li>
+			<li>(-4, 5)</li>
+			<li>(-3, 5)</li>
+			<li>(-2, 5)</li>
+			<li>(-2, 6)</li>
+			<li>(-1, 6)</li>
+			<li>(0, 6)</li>
+			<li>(6, 0)</li>
+			<li>(6, 1)</li>
+			<li>(6, 2)</li>
+			<li>(5, 2)</li>
+			<li>(5, 3)</li>
+			<li>(5, 4)</li>
+			<li>(4, 4)</li>
+			<li>(4, 5)</li>
+			<li>(3, 5)</li>
+			<li>(2, 5)</li>
+			<li>(2, 6)</li>
+			<li>(1, 6)</li>
+			<li>(0, 6)</li>
+        </pattern>
+        <screenShakeIntensity>2.0</screenShakeIntensity>
+        <clamorType>Ability</clamorType>
+        <clamorRadius>25</clamorRadius>
+        <sound>PsycastWallraise</sound>
+      </li>
+      <li Class="CompProperties_AbilityEffecterOnTarget">
+        <effecterDef>Skip_Exit</effecterDef>
+        <maintainForTicks>60</maintainForTicks>
+        <scale>6</scale>
+      </li>
+      <li Class="CompProperties_AbilityMoteOnTarget">
+        <moteDefs>
+          <li>Mote_PsycastSkipInnerExit</li>
+          <li>Mote_PsycastSkipOuterRingExit</li>
+        </moteDefs>
+        <scale>6</scale>
+        <sound>Psycast_Skip_Exit</sound>
+        <preCastTicks>5</preCastTicks>
+      </li>
+	  
+    </comps>
+  </AbilityDef>
+  
+  <AbilityDef ParentName="PsycastBase">
+    <defName>PsychicHeal</defName>
+    <label>psychic heal</label>
+    <description>Place someone into a psychic coma, using all of the body's natural resources to heal much faster.</description>
+    <level>4</level>
+    <iconPath>UI/Abilities/PsychicHeal</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+    <statBases>
+      <Ability_PsyfocusCost>0.7</Ability_PsyfocusCost>
+      <Ability_Duration>1000</Ability_Duration>
+    </statBases>
+    <verbProperties>
+      <warmupTime>1</warmupTime>
+      <range>12</range>
+      <onlyManualCast>True</onlyManualCast>
+      <targetParams>
+        <canTargetSelf>True</canTargetSelf>
+        <canTargetAnimals>True</canTargetAnimals>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>PsychicHealing</hediffDef>
+		<durationMultiplier>PsychicSensitivity</durationMultiplier>
+      </li>
+      <li Class="CompProperties_AbilityMoteOnTarget">
+        <moteDef>Mote_PsycastPsychicEffect</moteDef>
+      </li>
+    </comps>
+    
+  </AbilityDef>
+  
+  <AbilityDef ParentName="PsycastBaseSkip">
+    <defName>SolarRupture</defName>
+    <label>solar rupture</label>
+    <description>Pour extreme amounts of psychic energy into a solar skipgate, forcing it to rupture in a devestating explosion.</description>
+    <level>6</level>
+    <iconPath>UI/Abilities/SolarRupture</iconPath>
+    <writeCombatLog>True</writeCombatLog>
+    <hotKey>Misc10</hotKey>
+    <statBases>
+      <Ability_EntropyGain>150</Ability_EntropyGain>
+      <Ability_PsyfocusCost>0.05</Ability_PsyfocusCost>
+    </statBases>
+    <verbProperties>
+      <warmupTime>2</warmupTime>
+      <range>49.9</range>
+      <targetParams>
+        <canTargetPawns>False</canTargetPawns>
+        <canTargetLocations>True</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class = "RoyaltyExpanded.CompProperties_AbilitySolarRupture">
+        <flameRadius>6</flameRadius>
+		<flameDamage>25</flameDamage>
+		<filthType>Filth_SolarMatter</filthType>
+        <clamorType>Ability</clamorType>
+        <clamorRadius>15</clamorRadius>
+      </li>
+      <li Class="CompProperties_AbilityEffecterOnTarget">
+        <effecterDef>Skip_Exit</effecterDef>
+        <maintainForTicks>30</maintainForTicks>
+		<scale>6</scale>
+      </li>
+      <li Class="CompProperties_AbilityMoteOnTarget">
+        <moteDefs>
+          <li>Mote_PsycastSkipInnerExit</li>
+          <li>Mote_PsycastSkipOuterRingExit</li>
+        </moteDefs>
+        <sound>Psycast_Skip_Exit</sound>
+        <preCastTicks>5</preCastTicks>
+		<scale>4</scale>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <ThingDef ParentName="BaseFilth">
+    <defName>Filth_SolarMatter</defName>
+    <label>solar matter</label>
+    <description>solar matter</description>
+    <thingClass>LiquidFuel</thingClass>
+    <useHitPoints>true</useHitPoints>
+    <tickerType>Normal</tickerType>
+    <statBases>
+      <Beauty>0</Beauty>
+      <Cleanliness>0</Cleanliness>
+      <MaxHitPoints>200</MaxHitPoints>
+      <Flammability>2.0</Flammability>
+    </statBases>
+	    <graphicData>
+      <texPath>Things/Filth/SolarMatter</texPath>
+    </graphicData>
+    <filth>
+      <cleaningWorkToReduceThickness>70</cleaningWorkToReduceThickness>
+      <canFilthAttach>true</canFilthAttach>
+      <maxThickness>1</maxThickness>
+    </filth>
+  </ThingDef>
+  
+  <ThingDef>
+    <defName>PsychicFire</defName>
+    <label>psychic fire</label>
+    <thingClass>RoyaltyExpanded.PsychicFire</thingClass>
+    <category>Attachment</category>
+    <tickerType>Normal</tickerType>
+    <graphicData>
+      <texPath>Things/Special/PsychicFire</texPath>
+      <graphicClass>Graphic_Flicker</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData> 
+    <altitudeLayer>PawnState</altitudeLayer>
+    <useHitPoints>false</useHitPoints>
+  </ThingDef>
+  </Defs>
+  

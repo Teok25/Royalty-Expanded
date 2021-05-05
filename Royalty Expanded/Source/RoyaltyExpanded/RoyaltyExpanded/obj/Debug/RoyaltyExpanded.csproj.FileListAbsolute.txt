@@ -1,0 +1,4 @@
+A:\Games\SteamLibrary\steamapps\common\RimWorld\Mods\Royalty Expanded\1.2\Assemblies\RoyaltyExpanded.dll
+A:\Games\SteamLibrary\steamapps\common\RimWorld\Mods\Royalty Expanded\Source\RoyaltyExpanded\RoyaltyExpanded\obj\Debug\RoyaltyExpanded.csprojAssemblyReference.cache
+A:\Games\SteamLibrary\steamapps\common\RimWorld\Mods\Royalty Expanded\Source\RoyaltyExpanded\RoyaltyExpanded\obj\Debug\RoyaltyExpanded.csproj.CoreCompileInputs.cache
+A:\Games\SteamLibrary\steamapps\common\RimWorld\Mods\Royalty Expanded\Source\RoyaltyExpanded\RoyaltyExpanded\obj\Debug\RoyaltyExpanded.dll
